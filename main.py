@@ -21,5 +21,21 @@ def merge_sort(arr,cmp):
     pass
 
 # must be in-place sort
-def quick_sort(arr,cmp):
+def quick_sort(arr, cmp):
+    if len(arr)<=1:
+        return arr
+    pvt=arr[0]
+    Llarge=[]
+    Lsmall=[]
+    Lequal=[]
+    for i in arr:
+        if i>pvt:
+            Llarge.append(i)
+        elif i<pvt:
+            Lsmall.append(i)
+        else:
+            Lequal.append(i)
+    Lsmall=quick_sort(Lsmall)
+    Llarge=quick_sort(Llarge)
+    arr=Lsmall+Lequal+Llarge
     pass
